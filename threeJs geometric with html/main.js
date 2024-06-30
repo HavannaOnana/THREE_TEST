@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import './style.css';  // Make sure style.css exists if you're importing it
 
 // We are making a renderer
@@ -20,25 +21,49 @@ camera.position.z = 2;
 const scene = new THREE.Scene();
 
 // Adding the geometry and material
-const geometry = new THREE.IcosahedronGeometry(1, 2);
+const geometry = new THREE.IcosahedronGeometry(1, 20);
 const material = new THREE.MeshStandardMaterial({
-  color: 0xffffff,  // Fixed color value
-  flatShading: true
+  color: 0xffffff,
 });
+
+const loader = new THREE.TextureLoader();
+const texture = loader.load('/textures/earthy.jpg', 
+  function ( texture ) {
+    // onLoad callback
+    material.map = texture;
+    material.needsUpdate = true;
+  },
+  undefined, // onProgress callback, currently not used
+  function ( err ) {
+    console.error('An error happened while loading the texture.');
+  }
+);
+
 
 // Adding a mesh
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
 // Adding a light
-const hemiLight = new THREE.HemisphereLight("lightblue", "black");
+const hemiLight = new THREE.HemisphereLight("lightblue", "white");
 scene.add(hemiLight);
+
+// making something different in the controls
+const controls = new OrbitControls(camera,renderer.domElement);
+controls.enableZoom = false;
+
+// this event listner prevent us from zooming in
+window.addEventListener('wheel', (event) => {
+  if (event.ctrlKey) {
+    event.preventDefault();  // Prevent zooming via Ctrl + Mouse Wheel
+  }
+}, { passive: false });
 
 
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);
-  mesh.rotation.z += 0.01;
+  mesh.rotation.y += 0.0008;
   renderer.render(scene, camera);
 }
 

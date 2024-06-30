@@ -9,7 +9,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // Making a camera
-const fov = 80;
+const fov = 66;
 const aspect = window.innerWidth / window.outerHeight;
 const near = 0.1;
 const far = 10;
@@ -45,7 +45,7 @@ const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
 // Adding a light
-const hemiLight = new THREE.HemisphereLight("lightblue", "white");
+const hemiLight = new THREE.HemisphereLight("black", "white");
 scene.add(hemiLight);
 
 // making something different in the controls
@@ -58,6 +58,11 @@ window.addEventListener('wheel', (event) => {
     event.preventDefault();  // Prevent zooming via Ctrl + Mouse Wheel
   }
 }, { passive: false });
+
+//adding sunlight
+const Sunlight = new THREE.DirectionalLight("white");
+Sunlight.position.set(-12,-0.5,1.5);
+scene.add(Sunlight);
 
 
 // Animation loop

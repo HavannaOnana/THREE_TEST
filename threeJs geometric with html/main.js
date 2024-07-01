@@ -12,7 +12,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // Making a camera
-const fov = 40;
+const fov = 26;
 const aspect = window.innerWidth / window.outerHeight;
 const near = 0.1;
 const far = 30;
@@ -83,7 +83,7 @@ const cloudMat = new THREE.MeshBasicMaterial({
 })
 
 const cloudMesh = new THREE.Mesh(geometry,cloudMat);
-cloudMesh.scale.setScalar(1.003);
+cloudMesh.scale.setScalar(1.005);
 earthGroup.add(cloudMesh);
 
 //making a new mesh for the glow

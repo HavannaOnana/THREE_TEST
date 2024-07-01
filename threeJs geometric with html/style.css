@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Droid';
+  src: url(/fonts/DINBold.woff) format('truetype'); /* Correct URL encoding for spaces */
+}
+
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -14,9 +21,23 @@ html, body {
   }
   
 
-.overlay {
+.weather{
     position: absolute;
     color: white;
     z-index: 1;
-  }
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    width:20%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.weather ion-icon{
+  font-size: xx-large;
+}
+
+.weather h2 {
+  font-family: 'droid';
+}
 

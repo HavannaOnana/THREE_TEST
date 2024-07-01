@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import './style.css';  // Make sure style.css exists if you're importing it
 import { getFresnelMat } from '../getFresnelMat';
 import getStarfield from '../getStarfield';
+import gsap from 'gsap';
 
 
 // We are making a renderer
@@ -12,13 +13,13 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // Making a camera
-const fov = 26;
+const fov = 30;
 const aspect = window.innerWidth / window.outerHeight;
 const near = 0.1;
-const far = 30;
+const far = 100;
 
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.z = 2;
+camera.position.z = -1;
 
 // Making a new scene 
 const scene = new THREE.Scene();
@@ -35,7 +36,9 @@ const material = new THREE.MeshStandardMaterial({
 
 //making the earthgroup
 const earthGroup = new THREE.Group();
-earthGroup.position.y = -1;
+earthGroup.position.y = -2;
+earthGroup.position.x = -2;
+earthGroup.position.z = 2;
 scene.add(earthGroup);
 
 
@@ -108,3 +111,19 @@ function animate() {
 }
 
 animate();
+
+function zoomToPoint(targetPosition) {
+  gsap.to(camera.position, {
+    duration: 40,
+    x: targetPosition.x,
+    y: targetPosition.y,
+    z: targetPosition.z,
+    onUpdate: () => {
+      camera.lookAt(earthGroup.position);
+    }
+  });
+}
+
+// Call the zoom function with the desired target position
+const targetPosition = new THREE.Vector3(-1, 0, 10); // Change this to your desired zoom target position
+zoomToPoint(targetPosition)

@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import './style.css';  // Make sure style.css exists if you're importing it
 import { getFresnelMat } from '../getFresnelMat';
+import getStarfield from '../getStarfield';
 
 
 // We are making a renderer
@@ -11,10 +12,10 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 // Making a camera
-const fov = 66;
+const fov = 40;
 const aspect = window.innerWidth / window.outerHeight;
 const near = 0.1;
-const far = 10;
+const far = 30;
 
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 camera.position.z = 2;
@@ -34,6 +35,7 @@ const material = new THREE.MeshStandardMaterial({
 
 //making the earthgroup
 const earthGroup = new THREE.Group();
+earthGroup.position.y = -1;
 scene.add(earthGroup);
 
 
@@ -90,6 +92,9 @@ const glowMesh = new THREE.Mesh(geometry,fresnelMat);
 glowMesh.scale.setScalar(1.01);
 earthGroup.add(glowMesh);
 
+// going to add stars
+const stars = getStarfield({numStars : 20000});
+scene.add(stars);
 
 
 // Animation loop

@@ -127,3 +127,4 @@ function zoomToPoint(targetPosition) {
 // Call the zoom function with the desired target position
 const targetPosition = new THREE.Vector3(-1, 0, 10); // Change this to your desired zoom target position
 zoomToPoint(targetPosition)
+

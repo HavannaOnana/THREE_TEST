@@ -1,9 +1,7 @@
 @font-face {
-  font-family: 'Droid';
-  src: url(/fonts/DINBold.woff) format('truetype'); /* Correct URL encoding for spaces */
+  font-family: Din;
+  src: url('public/assets/fonts/Somms.ttf') format(tff);
 }
-
-
 
 html, body {
     margin: 0;
@@ -38,6 +36,20 @@ html, body {
 }
 
 .weather h2 {
-  font-family: 'droid';
+  font-family: Din;
+  font-size: medium;
 }
 
+.info{
+  position: absolute;
+  color: white;
+  z-index: 1;
+  margin-top: 8%;
+  margin-left: 9%;
+  font-family: Din;
+}
+
+.info_p{
+  color: rgb(175, 175, 175);
+  font-family: Din;
+}

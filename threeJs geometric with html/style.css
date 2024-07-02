@@ -8,7 +8,7 @@
   src: url("public/assets/fonts/DIN.ttf") format(tff);
 }
 
-.weather, .info, .video, .earth {
+.weather, .info, .video, .earth ,.copyright {
   opacity: 0; /* Start hidden */
   animation: fadeIn 90s ease-in forwards; /* Apply fade-in animation */
 }
@@ -101,6 +101,19 @@ video {
   font-size: 5em;
   font-family:Din;
   color: white; /* Base color of the text */
+}
+
+.copyright{
+  position: absolute;
+  color: aliceblue;
+  margin-top: 45%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  width: 100%;
+  font-family: Din;
+  animation-delay:2s ;
 }
 
 @keyframes fadeIn {

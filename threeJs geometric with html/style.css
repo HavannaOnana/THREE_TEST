@@ -3,6 +3,11 @@
   src: url('public/assets/fonts/Somms.ttf') format(tff);
 }
 
+@font-face {
+  font-family: droid;
+  src: url("public/assets/fonts/DIN.ttf") format(tff);
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -31,6 +36,7 @@ html, body {
     justify-content: space-evenly;
 }
 
+
 .weather ion-icon{
   font-size: xx-large;
 }
@@ -52,4 +58,37 @@ html, body {
 .info_p{
   color: rgb(175, 175, 175);
   font-family: Din;
+}
+
+.video {
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  left: 79%;
+  top: 50%;
+  color: white;
+  font-size: smaller;
+  font-family: Din;
+}
+
+video {
+  display: block;
+  width: 20%;
+  object-fit: cover;
+}
+
+.earth{
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.earth h1{
+  font-size: 5em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

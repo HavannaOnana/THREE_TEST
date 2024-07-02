@@ -100,6 +100,7 @@ const stars = getStarfield({numStars : 20000});
 scene.add(stars);
 
 
+
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);

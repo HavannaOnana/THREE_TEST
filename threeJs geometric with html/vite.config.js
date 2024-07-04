@@ -4,7 +4,8 @@ import mime from 'mime';
 // Define the Vite configuration
 export default defineConfig({
   server: {
-    middlewareMode: 'html',
+    port: 3000, // Specify your port
+    open: true, // Open the browser when the server starts
     configureServer: ({ middlewares }) => {
       // Add middleware to set the correct Content-Type for font files
       middlewares.use((req, res, next) => {

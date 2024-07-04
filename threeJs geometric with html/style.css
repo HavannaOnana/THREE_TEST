@@ -10,7 +10,7 @@
 
 .weather, .info, .video, .earth ,.copyright {
   opacity: 0; /* Start hidden */
-  animation: fadeIn 90s ease-in forwards; /* Apply fade-in animation */
+  animation: fadeIn 50s ease-in forwards; /* Apply fade-in animation */
 }
 
 html, body {
@@ -39,7 +39,7 @@ html, body {
     width:20%;
     align-items: center;
     justify-content: space-evenly;
-    animation-delay: 2s;
+    animation-delay: 1s;
 }
 
 
@@ -59,7 +59,7 @@ html, body {
   margin-top: 8%;
   margin-left: 9%;
   font-family: Din;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .info_p{
@@ -76,7 +76,7 @@ html, body {
   color: white;
   font-size: smaller;
   font-family: Din;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 video {
@@ -94,7 +94,7 @@ video {
   text-align: center;
   width: 100%;
   margin-top: 2%;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .earth h1{
@@ -113,7 +113,7 @@ video {
   flex-direction: row;
   width: 100%;
   font-family: Din;
-  animation-delay:2s ;
+  animation-delay:1s ;
 }
 
 @keyframes fadeIn {
